@@ -30,6 +30,8 @@ stage('Hello') {
 Nexus is started automatically. However, initialization of Nexus might take some time. The Nexus UI can be accessed using the following URL:
 http://192.168.33.10:8081/
 
+Sonarqube URL: http://192.168.33.10:9000
+
 ## Known problems
 * Changes to Jenkins configuration might be overwritten at restart.
 * Vagrant cannot login to the VM on Windows. Setting the following environment variable might help:
