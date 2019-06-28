@@ -27,6 +27,8 @@ stage('Hello') {
     }
 }
 ```
+Nexus is started automatically. However, initialization of Nexus might take some time. The Nexus UI can be accessed using the followin URL:
+http://192.168.33.10:8081/
 
 ## Known problems
 * Changes to Jenkins configuration might be overwritten at restart.
