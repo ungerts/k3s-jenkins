@@ -23,3 +23,6 @@ EOF
 
 kubectl apply -f ./jenkins/master/jenkins-master-deployment.yml
 kubectl apply -f ./jenkins/master/jenkins-master-service.yml
+
+kubectl apply -f nexus/nexus-deployment.yml
+kubectl apply -f nexus/nexus-service.yml

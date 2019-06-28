@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sonarqube
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sonarqube
+    spec:
+      containers:
+        - name: sonarqube
+          image: sonarqube:7.7-community
+          ports:
+            - name: https-port
+              containerPort: 9000
+          volumeMounts:
+            - name: sonar-data
+              mountPath: /opt/sonarqube/data
+            - name: sonar-extensions
+              mountPath: /opt/sonarqube/extensions
+      volumes:
+        - name: sonar-data
+          emptyDir: {}
+        - name: sonar-extensions
+          emptyDir: {}
+
