@@ -27,7 +27,7 @@ stage('Hello') {
     }
 }
 ```
-Nexus is started automatically. However, initialization of Nexus might take some time. The Nexus UI can be accessed using the followin URL:
+Nexus is started automatically. However, initialization of Nexus might take some time. The Nexus UI can be accessed using the following URL:
 http://192.168.33.10:8081/
 
 ## Known problems
