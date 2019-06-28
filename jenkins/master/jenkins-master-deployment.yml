@@ -39,4 +39,6 @@ spec:
                 path: password
               - key: tunnelIP
                 path: tunnelIP
+              - key: apiIP
+                path: apiIP
 

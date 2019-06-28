@@ -141,6 +141,7 @@ def setUsernamePasswordCredentialsImpl(Map settings) {
 def password = (new File('/etc/k3s-access/password')).text
 def username = (new File('/etc/k3s-access/username')).text
 def tunnelIP = (new File('/etc/k3s-access/tunnelIP')).text
+def apiIP = (new File('/etc/k3s-access/apiIP')).text
 
 addCredential(
             'k3s',
@@ -155,9 +156,9 @@ addCredential(
 
 def j = Jenkins.getInstance()
 def k = new KubernetesCloud(
-  'k3s',
+  'kubernetes',
   null,
-  'https://k3s',
+  "https://${apiIP}",
   'jenkins',
   null,
   '10', 5, 15, 5
@@ -166,5 +167,25 @@ k.setSkipTlsVerify(true)
 k.setCredentialsId('k3s')
 k.setJenkinsTunnel("${tunnelIP}:50000")
 k.setMaxRequestsPerHostStr('32')
+
+def p = new PodTemplate()
+p.setName('jnlp-agent-maven')
+p.setLabel('jnlp-agent-maven')
+
+List<ContainerTemplate> containerList = []
+
+ContainerTemplate ct = new ContainerTemplate('jnlp', 'ungerts/jnlp-agent-maven')
+ct.setWorkingDir('/home/jenkins')
+ct.setCommand('')
+ct.setArgs('')
+ct.setTtyEnabled(true)
+
+containerList.add(ct)
+
+p.setContainers(containerList)
+
+k.addTemplate(p)
+
+
 j.clouds.replace(k)
 j.save()
