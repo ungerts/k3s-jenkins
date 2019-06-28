@@ -30,6 +30,11 @@ stage('Hello') {
 Nexus is started automatically. However, initialization of Nexus might take some time. The Nexus UI can be accessed using the following URL:
 http://192.168.33.10:8081/
 
+Get Nexus Admin password:
+```
+kubectl exec -ti $(kubectl get pods -o=jsonpath="{$.items[?(@.metadata.labels.app=='nexus')].metadata.name}") -- cat /nexus-data/admin.password
+```
+
 Sonarqube URL: http://192.168.33.10:9000
 
 ## Known problems
