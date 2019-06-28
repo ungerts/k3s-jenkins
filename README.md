@@ -20,7 +20,7 @@ In order to verfiy that Jenkins is configured correctly, you can add a Job with 
 ```
 def label = "jenkins-slave-${UUID.randomUUID().toString()}"
 stage('Hello') {
-    podTemplate(label: label) {
+    podTemplate(label: label, inheritFrom: 'jnlp-agent-maven') {
         node(label) {
             echo 'Hello from POD...'
         }
