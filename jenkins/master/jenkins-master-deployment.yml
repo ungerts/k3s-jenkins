@@ -1,0 +1,42 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: jenkins
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      containers:
+        - name: jenkins
+          image: ungerts/jenkins-master
+          env:
+            - name: JAVA_OPTS
+              value: -Djenkins.install.runSetupWizard=false
+          ports:
+            - name: http-port
+              containerPort: 8080
+            - name: jnlp-port
+              containerPort: 50000
+          volumeMounts:
+            - name: jenkins-home
+              mountPath: /var/jenkins_home
+            - name: k3s-access
+              mountPath: /etc/k3s-access
+              readOnly: true              
+      volumes:
+        - name: jenkins-home
+          emptyDir: {}
+        - name: k3s-access
+          secret:
+            secretName: k3s-access
+            items:
+              - key: username
+                path: username
+              - key: password
+                path: password
+              - key: tunnelIP
+                path: tunnelIP
+

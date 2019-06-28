@@ -1,0 +1,13 @@
+token-macro:2.8
+greenballs:1.15
+credentials-binding:1.19
+email-ext:2.66
+sonar:2.9
+ansicolor:0.6.2
+kubernetes:1.16.1
+blueocean:1.17.0
+http_request:1.8.23
+nexus-jenkins-plugin:3.5.20190425-152158.c63841b
+pipeline-utility-steps:2.3.0
+jira-steps:1.4.5
+xunit:2.3.5
