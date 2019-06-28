@@ -20,9 +20,14 @@ data:
   apiIP: $API_IP
 EOF
 
-
+# Add Jenkins (master)
 kubectl apply -f ./jenkins/master/jenkins-master-deployment.yml
 kubectl apply -f ./jenkins/master/jenkins-master-service.yml
 
+#Add Nexus
 kubectl apply -f nexus/nexus-deployment.yml
 kubectl apply -f nexus/nexus-service.yml
+
+#Add Sonarqube
+kubectl apply -f sonar/sonarqube-deployment.yml
+kubectl apply -f sonar/sonarqube-service.yml
