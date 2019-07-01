@@ -1,0 +1,4 @@
+- [ ] Change in CHANGELOG.md described
+- [ ] Manually tested changed features
+- [ ] Ensured that [the git commit message is a good one](https://github.com/joelparkerhenderson/git_commit_message)
+- [ ] Check documentation status
