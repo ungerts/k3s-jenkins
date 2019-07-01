@@ -1,7 +1,7 @@
 # k3s-jenkins
 Runs Jenkins on top of Kubernetes. 
 
-## Starting
+## Getting Started
 Use Vagrant to build and start the VM:
 ```
 vagrant up
