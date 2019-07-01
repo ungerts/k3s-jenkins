@@ -72,15 +72,11 @@ static PodTemplate createPodTemplate() {
 def addCloud(String apiIP, String tunnelIP, String credentialsId) {
     def jenkins = Jenkins.get()
     def clouds = jenkins.clouds
-    if (clouds.find { cloud -> cloud.name == 'kubernetes' }) {
-        println 'Cloud k3s already exists'
-    } else {
-        KubernetesCloud kubernetesCloud = createK8sClud(apiIP, tunnelIP, credentialsId)
-        PodTemplate podTemplate = createPodTemplate()
-        kubernetesCloud.addTemplate(podTemplate)
-        jenkins.clouds.replace(kubernetesCloud)
-        jenkins.save()
-    }
+    KubernetesCloud kubernetesCloud = createK8sClud(apiIP, tunnelIP, credentialsId)
+    PodTemplate podTemplate = createPodTemplate()
+    kubernetesCloud.addTemplate(podTemplate)
+    jenkins.clouds.replace(kubernetesCloud)
+    jenkins.save()
 }
 
 
