@@ -45,3 +45,4 @@ Sonarqube URL: http://192.168.33.10:9000
 ```
 set VAGRANT_PREFER_SYSTEM_BIN=0
 ```
+* Vagrant box may run out of disk space. Box can be resized using the [vagrant-disksize plugin](https://github.com/sprotheroe/vagrant-disksize).
