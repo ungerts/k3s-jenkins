@@ -47,7 +47,7 @@ static KubernetesCloud createK8sClud(String apiIP, String tunnelIP, String crede
     kubernetesCloud.setCredentialsId(credentialsId)
     kubernetesCloud.setJenkinsTunnel("${tunnelIP}:50000")
     InetAddress dnsInetAddress = InetAddress.getByName 'jenkins'
-    kubernetesCloud.setJenkinsUrl(dnsInetAddress.hostAddress)
+    kubernetesCloud.setJenkinsUrl("http://${dnsInetAddress.hostAddress}/")
     kubernetesCloud.setMaxRequestsPerHostStr('32')
     kubernetesCloud
 }
