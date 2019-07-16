@@ -10,6 +10,6 @@ We refer to [GitHub issues](https://github.com/JabRef/jabref/issues) by using `#
 
 
 ### Fixed
-
+* Set Jenkins URL in Kubernetes plugin configuration (#4)
 
 ### Removed
